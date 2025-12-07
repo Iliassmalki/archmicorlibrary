@@ -42,6 +42,11 @@ public class AuteurController {
         Auteur updateAuteur = auteurService.updateAuteur(auteur);
         return ResponseEntity.ok(auteurMapper.toDto(updateAuteur));
     }
+@DeleteMapping ("/delete/{id}")
+    public ResponseEntity<Void> deleteAuteur(@PathVariable Long id) {
+        auteurService.deleteAuteur(id);
+        return ResponseEntity.noContent().build();
 
+    }
 
     }

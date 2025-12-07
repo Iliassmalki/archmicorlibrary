@@ -5,6 +5,8 @@ import org.sid.catalogue.Dto.LivreReadDto;
 import org.sid.catalogue.Service.LivreService;
 import org.sid.catalogue.entites.Livre;
 import org.sid.catalogue.mappers.LivreMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/livres")
 public class LivreController {
-
+    private static final Logger logger = LoggerFactory.getLogger(LivreController.class);
     @Autowired
     private LivreService livreService;
 
@@ -39,7 +41,7 @@ public class LivreController {
                 .body(livreMapper.toDto(saved));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("update/{id}")
     public ResponseEntity<LivreReadDto> updateLivre(
             @PathVariable Long id,
             @RequestBody LivreCreateUpdateDto dto) {
@@ -53,7 +55,7 @@ public class LivreController {
         return ResponseEntity.ok(livreMapper.toDto(updated));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("delete/{id}")
     public ResponseEntity<Void> deleteLivre(@PathVariable Long id) {
         livreService.deleteLivre(id);
         return ResponseEntity.noContent().build();

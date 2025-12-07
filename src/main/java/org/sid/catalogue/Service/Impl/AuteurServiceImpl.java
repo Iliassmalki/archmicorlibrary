@@ -28,7 +28,8 @@ public class AuteurServiceImpl implements AuteurService {
          return auteurRepository.save(auteur1);
      }
      @Override
-    public void deleteAuteur(Auteur auteur) {
-         auteurRepository.delete(auteur);
+    public void deleteAuteur(Long Id ) {
+        Auteur auteur = auteurRepository.getReferenceById(Id);
+        auteurRepository.delete(auteur);
      }
 }
