@@ -1,6 +1,7 @@
 package org.example.micrserviceemprunts.DTO;
 
 import org.example.micrserviceemprunts.Entity.Enum.EtatEmprunt;
+import org.jspecify.annotations.Nullable;
 
 import java.time.LocalDate;
 
@@ -11,11 +12,19 @@ public class EmpruntResponseDTO {
     private LocalDate dateEmprunt;
     private LocalDate dateRetourPrevue;
     private LocalDate dateRetourEffective;
-
+    private String errorMessage;
     private EtatEmprunt etat;
 
     private LivreDTO livre;   // ✅ From Catalogue Service
     private Long utilisateurId;
+    public static EmpruntResponseDTO error(String message) {
+        EmpruntResponseDTO dto = new EmpruntResponseDTO();
+        dto.setErrorMessage(message);
+        return dto;
+    }
+
+    public void setErrorMessage(String errorMessage) { this.errorMessage = errorMessage;}
+
 
     public void setId(Long id) {
         this.id = id;
