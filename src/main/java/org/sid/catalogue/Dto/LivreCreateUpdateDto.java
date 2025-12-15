@@ -1,5 +1,6 @@
 package org.sid.catalogue.Dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,5 @@ public class LivreCreateUpdateDto implements Serializable {
     private String isbn;
     private int annee;
 
-    // أسماء المؤلفين
     private List<String> auteursNoms;
 }

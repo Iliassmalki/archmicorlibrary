@@ -30,9 +30,6 @@ public class LivreServiceImpl implements LivreService {
 
         List<Auteur> auteurs = auteurRepository.findByNomIn(auteursNoms);
 
-        if (auteurs.size() != auteursNoms.size()) {
-            throw new RuntimeException("Certains auteurs n'existent pas !");
-        }
 
         livre.setAuteurs(auteurs);
         return livreRepository.save(livre);
@@ -43,9 +40,6 @@ public class LivreServiceImpl implements LivreService {
 
         List<Auteur> auteurs = auteurRepository.findByNomIn(auteursNoms);
 
-        if (auteurs.size() != auteursNoms.size()) {
-            throw new RuntimeException("Certains auteurs n'existent pas !");
-        }
 
         livre.setAuteurs(auteurs);
         return livreRepository.save(livre);

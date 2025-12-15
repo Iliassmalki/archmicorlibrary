@@ -9,5 +9,5 @@ public interface AuteurService {
     public Auteur createAuteur(Auteur auteur);
     public Auteur updateAuteur(Auteur auteur);
     public void deleteAuteur(Long Id);
-
+ public List<Auteur> getAllAuteurs();
 }

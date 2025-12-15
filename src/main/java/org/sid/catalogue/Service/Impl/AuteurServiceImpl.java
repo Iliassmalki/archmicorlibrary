@@ -6,6 +6,8 @@ import org.sid.catalogue.repositories.AuteurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AuteurServiceImpl implements AuteurService {
      @Autowired
@@ -32,4 +34,9 @@ public class AuteurServiceImpl implements AuteurService {
         Auteur auteur = auteurRepository.getReferenceById(Id);
         auteurRepository.delete(auteur);
      }
+
+    @Override
+    public List<Auteur> getAllAuteurs() {
+        return auteurRepository.findAll();
+    }
 }

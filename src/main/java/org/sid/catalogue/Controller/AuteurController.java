@@ -29,6 +29,10 @@ public class AuteurController {
     public ResponseEntity<AuteurReadDto> getAuteurById(@PathVariable("id") Long id) {
         return ResponseEntity.ok(auteurMapper.toDto(auteurService.getAuteurById(id)));
     }
+    @GetMapping("/all")
+    public ResponseEntity<List<AuteurReadDto>> getAllAuteurs() {
+        return ResponseEntity.ok(auteurMapper.toDtoList(auteurService.getAllAuteurs()));
+    }
     @PostMapping("/create")
     public ResponseEntity<AuteurReadDto> createAuteur(@RequestBody AuteurCreateUpdateDto auteurCreateUpdateDto) {
         Auteur auteur = auteurMapper.toEntity(auteurCreateUpdateDto);

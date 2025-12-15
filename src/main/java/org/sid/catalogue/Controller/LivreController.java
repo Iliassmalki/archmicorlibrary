@@ -1,5 +1,6 @@
 package org.sid.catalogue.Controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.sid.catalogue.Dto.LivreCreateUpdateDto;
 import org.sid.catalogue.Dto.LivreReadDto;
 import org.sid.catalogue.Service.LivreService;
@@ -40,7 +41,6 @@ public class LivreController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(livreMapper.toDto(saved));
     }
-
     @PutMapping("update/{id}")
     public ResponseEntity<LivreReadDto> updateLivre(
             @PathVariable Long id,
